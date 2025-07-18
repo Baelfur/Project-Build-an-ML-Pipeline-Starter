@@ -75,7 +75,18 @@ def go(config: DictConfig):
             ##################
             # Implement here #
             ##################
-            pass
+            _ = mlflow.run(
+                os.path.join(root_path, "src", "data_check"),
+                entry_point ="main",
+                env_manager="conda",
+                parameters={
+                    "input_artifact": "clean_sample.csv:latest",
+                    "ref": "clean_sample.csv:reference",
+                    "kl_threshold": config["data_check"]["kl_threshold"],
+                    "min_price": config["etl"]["min_price"],
+                    "max_price": config["etl"]["max_price"]
+                },
+            )
 
         if "data_split" in active_steps:
             ##################

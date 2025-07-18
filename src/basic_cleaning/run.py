@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--min_price", 
-        type = float,,
+        type = float,
         help = "Minimum house price to be considered",
         required = True
     )

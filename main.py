@@ -60,8 +60,8 @@ def go(config: DictConfig):
                 version='main',
                 env_manager="conda",
                 parameters={
-                    "input_artifact": "raw_data:latest",
-                    "output_artifact": "clean_data:latest",
+                    "input_artifact": "sample.csv:latest",
+                    "output_artifact": "clean_sample.csv",
                     "output_type": "cleaned_data",
                     "output_description": "Cleaned data with basic cleaning",
                     "min_price": config["etl"]["min_price"],

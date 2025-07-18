@@ -64,7 +64,7 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
 # Implement here test_row_count and test_price_range   #
 ########################################################
 
-def test_row_count(data: pd.DataFrame, expected_row_count: int):
+def test_row_count(data: pd.DataFrame):
     """
     Test that the number of rows in the dataset matches the expected row count
     """

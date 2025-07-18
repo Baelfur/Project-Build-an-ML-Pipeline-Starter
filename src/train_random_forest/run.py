@@ -96,12 +96,17 @@ def go(args):
     ######################################
     # Save the sk_pipe pipeline as a mlflow.sklearn model in the directory "random_forest_dir"
     # HINT: use mlflow.sklearn.save_model
+    # Sanitize X_val to avoid MlflowException for 'object' dtype
+    object_cols = X_val.select_dtypes(include="object").columns
+    X_val[object_cols] = X_val[object_cols].astype(str)
+
     signature = mlflow.models.infer_signature(X_val, y_pred)
+
     mlflow.sklearn.save_model(
-        sk_model = sk_pipe,
-        path = "random_forest_dir",
-        signature = signature,
-        input_example = X_train.iloc[:5]
+        sk_model=sk_pipe,
+        path="random_forest_dir",
+        signature=signature,
+        input_example=X_train.iloc[:5]
     )
     ######################################
 
@@ -167,7 +172,7 @@ def get_inference_pipeline(rf_config, max_tfidf_features):
     # 2 - A OneHotEncoder() step to encode the variable
     non_ordinal_categorical_preproc = make_pipeline(
         SimpleImputer(strategy="most_frequent"),
-        OneHotEncoder(handle_unknown='ignore', sparse_output=False)
+        OneHotEncoder()
     )
     ######################################
 

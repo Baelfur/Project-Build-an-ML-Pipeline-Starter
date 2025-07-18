@@ -80,7 +80,7 @@ def go(config: DictConfig):
                 entry_point ="main",
                 env_manager="conda",
                 parameters={
-                    "input_artifact": "clean_sample.csv:latest",
+                    "csv": "clean_sample.csv:latest",
                     "ref": "clean_sample.csv:reference",
                     "kl_threshold": config["data_check"]["kl_threshold"],
                     "min_price": config["etl"]["min_price"],

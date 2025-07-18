@@ -54,7 +54,7 @@ def go(config: DictConfig):
             ##################
             # Implement here #
             ##################
-            _= mlflow.run(
+            _ = mlflow.run(
                 f"{config['main']['components_repository']}/basic_cleaning",
                 "main",
                 version='main',

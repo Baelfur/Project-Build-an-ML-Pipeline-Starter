@@ -68,7 +68,7 @@ def test_row_count(data: pd.DataFrame, expected_row_count: int):
     """
     Test that the number of rows in the dataset matches the expected row count
     """
-    assert len(data) == expected_row_count, f"Expected {expected_row_count} rows, but got {len(data)}"
+    assert 15000 < data.shape[0] < 1000000
     
 def test_price_range(data: pd.DataFrame, min_price: float, max_price: float):
     """

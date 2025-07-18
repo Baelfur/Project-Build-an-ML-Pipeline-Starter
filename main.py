@@ -64,8 +64,8 @@ def go(config: DictConfig):
                     "output_artifact": "clean_data:latest",
                     "output_type": "cleaned_data",
                     "output_description": "Cleaned data with basic cleaning",
-                    "min_price": config["basic_cleaning"]["min_price"],
-                    "max_price": config["basic_cleaning"]["max_price"]
+                    "min_price": config["etl"]["min_price"],
+                    "max_price": config["etl"]["max_price"]
                 },
             )
 
